@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
 
 type Idea = { id: number; content: string; created_at: string };
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL || "";
 
 export default function App() {
   const [ideas, setIdeas] = useState<Idea[]>([]);
