@@ -1,0 +1,5 @@
+2026-11-17 10:15:21 ERROR Database connection failed
+2026-11-17 10:15:22 ERROR Connection refused at postgres:5432
+2026-11-17 10:15:23 WARNING Backend application restarting
+2026-11-17 10:15:25 ERROR Database connection timeout
+2026-11-17 10:15:27 ERROR Application startup failed
