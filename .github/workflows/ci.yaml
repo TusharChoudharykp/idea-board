@@ -27,7 +27,16 @@ jobs:
 
       - name: Check Python syntax
         run: |
-          python -m compileall backend/app
+          set -o pipefail
+          python -m compileall backend/app 2>&1 | tee backend-check.log
+
+      - name: Upload backend logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-logs
+          path: backend-check.log
+          if-no-files-found: ignore
 
   frontend-check:
     name: Frontend build
@@ -48,4 +57,14 @@ jobs:
 
       - name: Build frontend
         working-directory: frontend
-        run: npm run build
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee ../frontend-build.log
+
+      - name: Upload frontend logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-logs
+          path: frontend-build.log
+          if-no-files-found: ignore
