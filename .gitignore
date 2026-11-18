@@ -11,3 +11,8 @@ dist/
 .vscode/
 .DS_Store
 kubernetes/secret.yaml
+ci-logs
+
+ai/backend-k8s.log
+ai/frontend-k8s.log
+ai/kubernetes-health.log
